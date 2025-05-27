@@ -1,8 +1,4 @@
-# Update the HTML file with the user's real TikTok Pixel ID
-pixel_id = "D0R22ABC7U7RPGNVSJ0"
-
-# Replace placeholder with the actual Pixel ID
-updated_html_content = f"""<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="it">
 <head>
   <meta charset="UTF-8">
@@ -10,47 +6,50 @@ updated_html_content = f"""<!DOCTYPE html>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Redirect in corso...</title>
 
-  <!-- TikTok Pixel Code -->
+  <!-- TikTok Pixel Code Start -->
   <script>
-    !function (w, d, t) {{
+    !function (w, d, t) {
       w.TiktokAnalyticsObject = t;
       var ttq = w[t] = w[t] || [];
-      ttq.methods = ["page", "track", "identify", "instances", "debug", "on", "off", "once", "ready", "alias", "group", "enableCookie"];
-      ttq.setAndDefer = function (t, e) {{
-        t[e] = function () {{
+      ttq.methods = ["page", "track", "identify", "instances", "debug", "on", "off", "once", "ready", "alias", "group", "enableCookie", "disableCookie", "holdConsent", "revokeConsent", "grantConsent"];
+      ttq.setAndDefer = function (t, e) {
+        t[e] = function () {
           t.push([e].concat(Array.prototype.slice.call(arguments, 0)))
-        }}
-      }};
-      for (var i = 0; i < ttq.methods.length; i++) {{
+        }
+      };
+      for (var i = 0; i < ttq.methods.length; i++) {
         ttq.setAndDefer(ttq, ttq.methods[i])
-      }}
-      ttq.load = function (e, n) {{
-        var i = "https://analytics.tiktok.com/i18n/pixel/events.js";
-        ttq._i = ttq._i || [];
-        ttq._i.push([e, n]);
-        var o = d.createElement("script");
-        o.type = "text/javascript";
-        o.async = !0;
-        o.src = i;
-        var a = d.getElementsByTagName("script")[0];
-        a.parentNode.insertBefore(o, a)
-      }};
-      ttq.load('{pixel_id}');
+      }
+      ttq.instance = function(t){
+        for(var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n]);
+        return e
+      };
+      ttq.load = function (e, n) {
+        var r = "https://analytics.tiktok.com/i18n/pixel/events.js";
+        var o = n && n.partner;
+        ttq._i = ttq._i || {};
+        ttq._i[e] = [];
+        ttq._i[e]._u = r;
+        ttq._t = ttq._t || {};
+        ttq._t[e] = +new Date;
+        ttq._o = ttq._o || {};
+        ttq._o[e] = n || {};
+        n = document.createElement("script");
+        n.type = "text/javascript";
+        n.async = !0;
+        n.src = r + "?sdkid=" + e + "&lib=" + t;
+        e = document.getElementsByTagName("script")[0];
+        e.parentNode.insertBefore(n, e)
+      };
+      ttq.load('D0R22ABC7U7RPGNVSJ0');
       ttq.page();
       ttq.track('CompletePayment');
-    }}(window, document, 'ttq');
+    }(window, document, 'ttq');
   </script>
-  <!-- End TikTok Pixel Code -->
+  <!-- TikTok Pixel Code End -->
 
 </head>
 <body>
   <p>Stai per essere reindirizzato al prodotto. Attendere...</p>
 </body>
 </html>
-"""
-
-# Save the updated file
-updated_index_path = Path("/mnt/data/index_tiktok_pixel.html")
-updated_index_path.write_text(updated_html_content, encoding='utf-8')
-
-updated_index_path.name
