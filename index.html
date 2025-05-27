@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="refresh" content="1;url=https://shop.beacons.ai/francesca.culcasi/60d353e4-445f-4bed-b535-8a120726057b">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Redirect in corso...</title>
+
+  <!-- TikTok Pixel Code -->
+  <script>
+    !function (w, d, t) {
+      w.TiktokAnalyticsObject = t;
+      var ttq = w[t] = w[t] || [];
+      ttq.methods = ["page", "track", "identify", "instances", "debug", "on", "off", "once", "ready", "alias", "group", "enableCookie"];
+      ttq.setAndDefer = function (t, e) {
+        t[e] = function () {
+          t.push([e].concat(Array.prototype.slice.call(arguments, 0)))
+        }
+      };
+      for (var i = 0; i < ttq.methods.length; i++) {
+        ttq.setAndDefer(ttq, ttq.methods[i])
+      }
+      ttq.load = function (e, n) {
+        var i = "https://analytics.tiktok.com/i18n/pixel/events.js";
+        ttq._i = ttq._i || [];
+        ttq._i.push([e, n]);
+        var o = d.createElement("script");
+        o.type = "text/javascript";
+        o.async = !0;
+        o.src = i;
+        var a = d.getElementsByTagName("script")[0];
+        a.parentNode.insertBefore(o, a)
+      };
+      ttq.load('INSERISCI_IL_TUO_PIXEL_ID');
+      ttq.page();
+      ttq.track('CompletePayment');
+    }(window, document, 'ttq');
+  </script>
+  <!-- End TikTok Pixel Code -->
+
+</head>
+<body>
+  <p>Stai per essere reindirizzato al prodotto. Attendere...</p>
+</body>
+</html>
