@@ -1,4 +1,8 @@
-<!DOCTYPE html>
+# Update the HTML file with the user's real TikTok Pixel ID
+pixel_id = "D0R22ABC7U7RPGNVSJ0"
+
+# Replace placeholder with the actual Pixel ID
+updated_html_content = f"""<!DOCTYPE html>
 <html lang="it">
 <head>
   <meta charset="UTF-8">
@@ -8,19 +12,19 @@
 
   <!-- TikTok Pixel Code -->
   <script>
-    !function (w, d, t) {
+    !function (w, d, t) {{
       w.TiktokAnalyticsObject = t;
       var ttq = w[t] = w[t] || [];
       ttq.methods = ["page", "track", "identify", "instances", "debug", "on", "off", "once", "ready", "alias", "group", "enableCookie"];
-      ttq.setAndDefer = function (t, e) {
-        t[e] = function () {
+      ttq.setAndDefer = function (t, e) {{
+        t[e] = function () {{
           t.push([e].concat(Array.prototype.slice.call(arguments, 0)))
-        }
-      };
-      for (var i = 0; i < ttq.methods.length; i++) {
+        }}
+      }};
+      for (var i = 0; i < ttq.methods.length; i++) {{
         ttq.setAndDefer(ttq, ttq.methods[i])
-      }
-      ttq.load = function (e, n) {
+      }}
+      ttq.load = function (e, n) {{
         var i = "https://analytics.tiktok.com/i18n/pixel/events.js";
         ttq._i = ttq._i || [];
         ttq._i.push([e, n]);
@@ -30,11 +34,11 @@
         o.src = i;
         var a = d.getElementsByTagName("script")[0];
         a.parentNode.insertBefore(o, a)
-      };
-      ttq.load('INSERISCI_IL_TUO_PIXEL_ID');
+      }};
+      ttq.load('{pixel_id}');
       ttq.page();
       ttq.track('CompletePayment');
-    }(window, document, 'ttq');
+    }}(window, document, 'ttq');
   </script>
   <!-- End TikTok Pixel Code -->
 
@@ -43,3 +47,10 @@
   <p>Stai per essere reindirizzato al prodotto. Attendere...</p>
 </body>
 </html>
+"""
+
+# Save the updated file
+updated_index_path = Path("/mnt/data/index_tiktok_pixel.html")
+updated_index_path.write_text(updated_html_content, encoding='utf-8')
+
+updated_index_path.name
